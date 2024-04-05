@@ -56,7 +56,17 @@ def step_impl(context, error_displayed):
     assert error_displayed.lower() in error_message.lower()
 
 
+@when('I enter problem user credentials')
+def step_impl(context):
+    context.SauceDemoPage.login("problem_user", "secret_sauce")
+
+
+@when('I enter locked user credentials')
+def step_impl(context):
+    context.SauceDemoPage.login("locked_out_user", "secret_sauce")
+
 # ******************* Item steps *************
+
 
 @then('I have a list of {items} to order')
 def step_impl(context, items):

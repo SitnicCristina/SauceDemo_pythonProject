@@ -133,3 +133,30 @@ Feature: SauceDemo Login Functionality
     Examples:
       | items             |
       | Sauce Labs Onesie |
+
+    Scenario Outline: The problem user can complete an order - E2E test
+    Given I am on the SauceDemo login page
+    When I enter problem user credentials
+    And I click the login button
+    Then I should be redirected to Home Page
+    And I have a list of <items> to order
+    When I click 'Add to cart' for each item
+    And I click "shopping_cart_container"
+    Then I should be taken to the "cart" page
+    When I click "checkout"
+    Then I should be taken to the "checkout-step-one" page
+    And I enter personal data
+    When I click "continue"
+    Then I should be taken to the "checkout-step-two" page
+    When I click "finish"
+    Then I should be taken to the "checkout-complete" page
+    Examples:
+      | items             |
+      | Sauce Labs Onesie |
+
+
+  Scenario: Successful Login - UI - locked user
+    Given I am on the SauceDemo login page
+    When I enter locked user credentials
+    And I click the login button
+    Then I should be redirected to Home Page
