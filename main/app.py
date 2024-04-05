@@ -1,5 +1,8 @@
+import sys
+
 import streamlit as st
 import json
+import subprocess
 
 
 def main():
@@ -22,4 +25,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+
+    # Display the Project Details
+    st.title("Sauce Demo Automation testing.")
+    st.write("Please click the button to start running the scenarios")
+
+    button_run_scenarios = st.button("Run scenarios")
+    if button_run_scenarios:
+        p = subprocess.run([f"{sys.executable}", "/Users/cristina.sitnic/PycharmProjects/SauceDemo_pythonProject/main/script.py"])
+        main()
