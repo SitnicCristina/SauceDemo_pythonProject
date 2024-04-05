@@ -75,7 +75,7 @@ class SauceDemoPage(BasePage):
 
     def enter_personal_data(self):
         # Load personal data from json file
-        data = open('testData/personalData.json', 'r')
+        data = open('jsonLibrary/personalData.json', 'r')
         persData = json.load(data)
         # Enter data on the fields
         self.driver.find_element(*self.FIRST_NAME).send_keys(persData.get("firstName"))
